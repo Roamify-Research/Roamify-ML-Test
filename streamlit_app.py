@@ -2,13 +2,13 @@ import pandas as pd
 import streamlit as st
 
 def load_data():
-    attractions_data = pd.read_csv('../datasets/final_attractions.csv', usecols=['Name', 'State', 'City', 'Opening Hours', 'Description'])
-    user_ratings_data = pd.read_csv('../datasets/user_ratings.csv', usecols=['Attraction', 'Noel', 'Harsh', 'Vikranth', 'Muthuraj', 'Armaan'])
+    attractions_data = pd.read_csv('final_attractions.csv', usecols=['Name', 'State', 'City', 'Opening Hours', 'Description'])
+    user_ratings_data = pd.read_csv('user_ratings.csv', usecols=['Attraction', 'Noel', 'Harsh', 'Vikranth', 'Muthuraj', 'Armaan'])
     return attractions_data, user_ratings_data
 
 def load_user_data(user):
-    attractions_data = pd.read_csv('../datasets/final_attractions.csv', usecols=['Rating', 'Name', 'State', 'City', 'Country', 'Opening Hours', 'Description'])
-    user_ratings_data = pd.read_csv('../datasets/user_ratings.csv', usecols=['Attraction', user])
+    attractions_data = pd.read_csv('final_attractions.csv', usecols=['Rating', 'Name', 'State', 'City', 'Country', 'Opening Hours', 'Description'])
+    user_ratings_data = pd.read_csv('user_ratings.csv', usecols=['Attraction', user])
     
     attractions_data.rename(columns={'Rating': 'Google_Rating'}, inplace=True)
     attractions_data['User_Rating'] = user_ratings_data[user]
